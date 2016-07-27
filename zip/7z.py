@@ -88,6 +88,39 @@ def compress(src):
     return result
 
 
-src= ['a', 'b', 'a', 'b', 'c', 'b', 'a', 'b', 'a', 'b', 'c', 'a', 'd']
+src = ['a', 'b', 'a', 'b', 'c', 'b', 'a', 'b', 'a', 'b', 'c', 'a', 'd']
 
-print compress(src)
+compress_result = compress(src)
+print "compress_result", compress_result
+
+def uncompress(src):
+    result = []
+    for i in xrange(0, WINDOW_SIZE):
+        result.append(None)
+
+    for item in src:
+        if item[0] is 0:
+            value = item[1]
+            result.append(value)
+        else:
+            data = item[1]
+            offset = data[0]
+            length = data[1]
+            next = data[2]
+
+            diff = len(result) - WINDOW_SIZE
+            posInList = offset + diff
+
+            for i in xrange(0, length):
+                result.append(result[posInList])
+                posInList += 1
+
+            result.append(next)
+
+    while result[0] is None:
+        del result[0]
+
+    return result
+
+print uncompress(compress_result)
+
