@@ -42,24 +42,33 @@ def insert_sort2(myList):
 
         myList[k + 1] = current
 
+def merge2(list1, list2):
+    len1 = len(list1)
+    len2 = len(list2)
+
+    list1.append(10000) #增加卫兵的方法减少复杂性
+    list2.append(10000)
+
+    result = []
+    index1 = 0
+    index2 = 0
+
+    for i in range(0, len1 + len2):
+        if(list1[index1] < list2[index2]):
+            result.append(list1[index1])
+            index1 += 1
+        else:
+            result.append(list2[index2])
+            index2 += 1
+
+    print result
+
+merge2([2,3,4], [1, 5,6,7])
 
 
 
 
 
-
-
-
-
-
-
-insert_sort2(init_list)
-# data = init_list[2]
-
-#     init_list[i] = init_list[i-1]
-#
-# init_list[0] = data
-print init_list
 
 #
 # def findMiddle(myList, start, end):
