@@ -46,7 +46,7 @@ def merge2(list1, list2):
     len1 = len(list1)
     len2 = len(list2)
 
-    list1.append(10000) #Ôö¼ÓÎÀ±øµÄ·½·¨¼õÉÙ¸´ÔÓĞÔ
+    list1.append(10000) #ç”¨å¢åŠ å«å…µçš„æ–¹æ³•å‡å°‘å¤æ‚æ€§
     list2.append(10000)
 
     result = []
